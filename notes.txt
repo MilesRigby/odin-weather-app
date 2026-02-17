@@ -1,0 +1,22 @@
+Visual Crossing weather api returns weather data as an object.
+
+data.days - an array containing days from a start to end date. 
+            By default includes today and two weeks of data starting tomorrow.
+
+data.days[i] - a specific day in the date range provided
+
+each day has a .hours field - weather data for the 24 hours of the day, from 00:00:00 to 23:00:00
+
+Weather data provided I may want to use:
+
+Each hour has fields including:
+.cloudcover
+.conditions
+.datetime
+.temp
+.feelslike
+.humidity
+.precip
+.precipprob
+.preciptype
+.windspeed
