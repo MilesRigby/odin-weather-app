@@ -1,3 +1,10 @@
-import getWeatherDataFromAPI from "./API-access/weatherAPI.js";
+import getWeatherDataFromAPI from "./API-control/weatherAPI.js";
+import ProcessAPIData from "./API-control/APIResponseProcessor.js";
 
-console.log(await getWeatherDataFromAPI("london"));
+const response = await getWeatherDataFromAPI("london");
+
+console.log(response);
+
+const cleaned = ProcessAPIData(response);
+
+console.log(cleaned);

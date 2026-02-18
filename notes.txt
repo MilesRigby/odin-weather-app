@@ -20,3 +20,31 @@ Each hour has fields including:
 .precipprob
 .preciptype
 .windspeed
+
+
+
+Weather data storage:
+
+weatherData = {
+    "dd/mm/yyyy": {
+        rainfall:
+        minTemp:
+        maxTemp:
+        maxFeelsLike:
+        humidity:
+        cloudCoverage:
+        visibility:
+        uvIndex:
+        windSpeed:
+        hours: {
+            "hh": {
+                rainfall:
+                temp:
+                feelsLike:
+                visibility:
+                cloudCoverage:
+                windspeed:
+            }
+        }
+    }
+}

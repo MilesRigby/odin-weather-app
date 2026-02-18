@@ -1,10 +1,10 @@
 const APICallDesc = {
     urlBase: 'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/',
     options: {
-        'key': ['JVP5DSV9MFBR6GBNS8Q4SJU57'],
-        'unitGroup': ['uk'],
-        'include': ['days', 'hours'],
-        'elements': ['datetime', 'precip', 'tempmax', 'tempmin', 'feelslikemax', 'humidity', 'uvindex', 'temp', 'feelslike', 'windspeed', 'cloudcover', 'visibility']
+        key: ['JVP5DSV9MFBR6GBNS8Q4SJU57'],
+        unitGroup: ['uk'],
+        include: ['days', 'hours'],
+        elements: ['datetime', 'precip', 'tempmax', 'tempmin', 'feelslikemax', 'humidity', 'uvindex', 'temp', 'feelslike', 'windspeed', 'cloudcover', 'visibility']
     }
 }
 
