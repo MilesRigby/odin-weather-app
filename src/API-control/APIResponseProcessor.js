@@ -1,4 +1,5 @@
 // Describes which values we need from the API response, and what they are to be called locally
+// Ourname: 'APIResponseField'
 const values = {
     day: {
         rainfall: 'precip',
