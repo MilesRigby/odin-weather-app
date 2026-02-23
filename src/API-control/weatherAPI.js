@@ -37,7 +37,7 @@ const ConstructAPICall = (location) => {
     return call;
 }
 
-async function getWeatherDataFromAPI(location) {
+const getWeatherDataFromAPI = async (location) => {
 
     const apiCall = ConstructAPICall(location);
     
