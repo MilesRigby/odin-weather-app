@@ -1,3 +1,8 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 #page-content {
     padding-top: 5rem;
 
@@ -48,28 +53,6 @@
 
 }
 
-.scrollview-items {
-
-    display: flex;
-
-    transition: transform 0.5s ease;
-
-}
-
-.daily-weather-item {
-
-    --scale: max(min(2vw, 0.7rem), 0.57vw);
-
-    margin: 0.5rem var(--scale) 0.5rem var(--scale);
-    flex: none;
-
-    width: calc(20.5*var(--scale));
-    height: calc(30*var(--scale));
-
-    background-color: grey;
-    border-radius: 2rem;
-}
-
 .scrollview-button {
 
     position: absolute;
@@ -107,4 +90,95 @@
 
 .scrollview-right {
     right: calc(5vw + 2rem);
+}
+
+.scrollview-items {
+
+    --scale: max(min(1vw, 0.45rem), 0.286vw);
+
+    display: flex;
+
+    transition: transform 0.5s ease;
+
+}
+
+.daily-weather-item {
+
+    margin: 0.5rem var(--scale) 0.5rem var(--scale);
+    flex: none;
+
+    width: calc(42*var(--scale));
+    height: calc(45*var(--scale));
+
+    border-style: solid;
+    border-radius: 2rem;
+
+    box-shadow: 0 0 4px 0 grey;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+
+}
+
+.daily-weather-date {
+
+    margin: var(--scale);
+    padding: var(--scale);
+
+    border-style: solid;
+    border-radius: calc(5 * var(--scale));
+    border-color: grey;
+
+    font-size: calc(3 * var(--scale));
+    font-weight: 500;
+
+}
+
+.daily-weather-data {
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+
+}
+
+.daily-weather-data-cell {
+
+    margin: calc(0.5 * var(--scale));
+
+    width: calc(10 * var(--scale));
+    height: calc(10 * var(--scale));
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    border-style: solid;
+    border-color: darkgrey;
+    border-radius: calc(4 * var(--scale));
+    border-width: 3px;
+
+    box-shadow: 0 0 2px 0 grey,
+                inset 0 0 2px 0 grey;
+
+}
+
+.daily-weather-data-name {
+
+    margin-top: calc(0.5 * var(--scale));
+    margin-left: calc(0.3 * var(--scale));
+
+    font-size: calc(2 * var(--scale));
+
+}
+
+.daily-weather-data-value {
+
+    margin-top: calc(1.2 * var(--scale));
+    margin-left: calc(0.3 * var(--scale));
+
+    font-size: calc(3 * var(--scale));
+
 }

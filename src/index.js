@@ -19,32 +19,41 @@ window.addEventListener("resize", () => {
     scrollSpace = items.scrollWidth;
     maxDisplacement = scrollSpace - dailyDisp.offsetWidth;
     currentDisp = ratio*maxDisplacement;
-    items.style.transition = `none`;
     items.style.transform = `translateX(-${currentDisp}px)`;
-    items.style.transition = `transform 0.5s ease`;
 });
 
+const leftButton = dailyDisp.querySelector(".scrollview-left");
+leftButton.style.display = `none`;
+
+const rightButton = dailyDisp.querySelector(".scrollview-right");
+
 const UpdateDisp = (disp) => {
+
+    let hitEnd = false;
+
     currentDisp += disp;
 
-    if ( currentDisp < 0 ) { currentDisp = 0; }
-    if ( currentDisp > maxDisplacement ) { currentDisp = maxDisplacement; }
-}
+    if ( currentDisp < 0 ) { currentDisp = 0; hitEnd = true; }
+    if ( currentDisp > maxDisplacement ) { currentDisp = maxDisplacement; hitEnd = true; }
 
-const leftButton = dailyDisp.querySelector(".scrollview-left");
-const rightButton = dailyDisp.querySelector(".scrollview-right");
+    items.style.transform = `translateX(-${currentDisp}px)`;
+
+    return hitEnd;
+}
 
 leftButton.addEventListener("click", (event) => {
     event.preventDefault();
-
-    UpdateDisp(-2*scrollSpace/15);
-    items.style.transform = `translateX(-${currentDisp}px)`;
+    if (UpdateDisp(-2*scrollSpace/15)) {
+        leftButton.style.display = `none`;
+    }
+    rightButton.style.display = `flex`;
 });
 
 rightButton.addEventListener("click", (event) => {
     event.preventDefault();
-
-    UpdateDisp(2*scrollSpace/15);
-    items.style.transform = `translateX(-${currentDisp}px)`;
+    if (UpdateDisp(2*scrollSpace/15)) {
+        rightButton.style.display = `none`;
+    }
+    leftButton.style.display = `flex`;
 });
 
