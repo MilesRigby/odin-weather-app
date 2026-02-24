@@ -40,6 +40,8 @@ const ConstructAPICall = (location) => {
 const getWeatherDataFromAPI = async (location) => {
 
     const apiCall = ConstructAPICall(location);
+
+    console.log("Calling weather API at: " + apiCall);
     
     const response = await fetch(apiCall);
     const data = await response.json();

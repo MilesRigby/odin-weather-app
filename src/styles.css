@@ -18,6 +18,8 @@
 
 #location-field {
 
+    margin-bottom: 2rem;
+
     height: 2rem;
 
     border-radius: 2rem;
@@ -26,4 +28,83 @@
 
     font-size: 1.5rem;
 
+}
+
+#daily-weather-disp {
+
+    width: 90vw;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 3rem;
+
+    box-shadow: inset 0 0 15px 0 grey;
+
+}
+
+.scrollview-items {
+
+    display: flex;
+
+    transition: transform 0.5s ease;
+
+}
+
+.daily-weather-item {
+
+    --scale: max(min(2vw, 0.7rem), 0.57vw);
+
+    margin: 0.5rem var(--scale) 0.5rem var(--scale);
+    flex: none;
+
+    width: calc(20.5*var(--scale));
+    height: calc(30*var(--scale));
+
+    background-color: grey;
+    border-radius: 2rem;
+}
+
+.scrollview-button {
+
+    position: absolute;
+    display: flex;
+    justify-content: center;
+
+    height: 4rem;
+    width: 4rem;
+    
+    user-select: none;
+    font-size: 4rem;
+    font-weight: 1000;
+
+    border-style: solid;
+    border-radius: 50%;
+
+    opacity: 0.2;
+    z-index: 1;
+
+}
+
+.scrollview-button:hover {
+    opacity: 0.5;
+
+    cursor: pointer;
+}
+
+.scrollview-button > p {
+    align-self: center;
+}
+
+.scrollview-left {
+    left: calc(5vw + 2rem);
+}
+
+.scrollview-right {
+    right: calc(5vw + 2rem);
 }
