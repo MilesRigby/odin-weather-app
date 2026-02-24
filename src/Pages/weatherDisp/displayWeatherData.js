@@ -1,14 +1,14 @@
 import { DataAccess } from "../../Data/weatherData.js";
 import getWeatherDataFor from "../../Data/getWeatherData.js";
 
-const displayWeatherDataFor = async (location) => {
+const DisplayWeatherDataFor = async (location) => {
     
     await getWeatherDataFor(location);
-    displayWeatherData();
+    DisplayWeatherData();
 
 }
 
-const displayWeatherData = () => {
+const DisplayWeatherData = () => {
 
     const dailyData = DataAccess.getDailyData();
     console.log(dailyData);
@@ -18,4 +18,4 @@ const displayWeatherData = () => {
 
 }
 
-export default displayWeatherDataFor;
+export default DisplayWeatherDataFor;

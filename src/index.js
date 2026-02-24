@@ -1,10 +1,7 @@
 import "./styles.css";
-import StaticContent from "./Pages/StaticContent/StaticContent.js";
+import PageLoader from "./Pages/PageLoader.js";
 
-StaticContent();
-
-
-
+PageLoader("weatherDisp");
 
 const dailyDisp = document.getElementById("daily-weather-disp");
 const items = dailyDisp.querySelector(".scrollview-items");

@@ -10,6 +10,8 @@ const StaticContent = () => {
     dynamicContent.id = "dynamic-content";
     pageContent.appendChild(dynamicContent);
 
+    return pageContent;
+
 }
 
 export default StaticContent;

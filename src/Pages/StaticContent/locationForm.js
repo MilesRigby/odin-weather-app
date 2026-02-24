@@ -1,19 +1,10 @@
-/*
-
-    <form id="location-form">
-        <label id="location-field-label" for="location" class="sr-only-label"></label>
-        <input id="location-field" type="text" placeholder="Location...">
-    </form>
-
-*/
-
 import ConstructHTMLFromObject from "../ContentBuilder.js";
-import displayWeatherDataFor from "../weatherDisp/displayWeatherData.js";
+import DisplayWeatherDataFor from "../weatherDisp/displayWeatherData.js";
 
 const LocationFormDef = {
 
     "form": { attributes: { "id": "location-form" }, children: [
-        {"label": { attributes: { "id": "location-field-label", "for": "location-field", "class": "sr-only-label" }, children: []}},
+        {"label": { attributes: { "id": "location-field-label", "htmlFor": "location-field", "className": "sr-only-label" }, children: []}},
         {"input": { attributes: { "id": "location-field", "name": "location", "type": "text", "placeholder": "Location..." }, children: []}}
     ]}
 
@@ -26,7 +17,7 @@ const LocationForm = () => {
         event.preventDefault();
 
         const location = new FormData(event.target).get('location');
-        await displayWeatherDataFor(location);        
+        await DisplayWeatherDataFor(location);        
     })
 
     return locationForm;
