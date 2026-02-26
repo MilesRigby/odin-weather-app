@@ -49,8 +49,8 @@ const weatherDataSchema = {
     "Humidity": "99%"
 }
 
-// Constructs the display area for daily weather data
-const ConstructDailyWeatherDataDisplay = () => {
+// Constructs the HTML for display area of daily weather data
+const ConstructHTML = () => {
 
     const dailyDisplay = ConstructHTMLFromObject(dailyDisplayDef);
 
@@ -72,6 +72,73 @@ const ConstructDailyWeatherDataDisplay = () => {
 
         }
     }
+
+    return dailyDisplay;
+
+}
+
+// Adds javascript functionality to the HTML of the daily weather display
+const ConstructDailyWeatherDataDisplay = () => {
+
+    const dailyDisplay = ConstructHTML();
+
+    const items = dailyDisplay.querySelector(".scrollview-items");
+
+    // Determine how far the scrollview can scroll
+    let scrollSpace = items.scrollWidth;
+    let maxDisplacement = scrollSpace - dailyDisplay.offsetWidth;
+    let currentDisp = 0;
+
+    // Initialises scrollview measurements on adding element to DOM, and 
+    // maintains current ratio between scroll distance and scrollview width on window resize
+    const observer = new ResizeObserver(() => { 
+        let ratio = maxDisplacement > 0 ? currentDisp/maxDisplacement : 0;
+
+        scrollSpace = items.scrollWidth;
+        maxDisplacement = scrollSpace - dailyDisplay.offsetWidth;
+        currentDisp = ratio*maxDisplacement;
+        items.style.transform = `translateX(-${currentDisp}px)`;
+    });
+
+    observer.observe(dailyDisplay);
+
+    // Scrollview navigation buttons; left button starts invisible
+    const leftButton = dailyDisplay.querySelector(".scrollview-left");
+    leftButton.style.display = `none`;
+
+    const rightButton = dailyDisplay.querySelector(".scrollview-right");
+
+    // Helper function to move the viewport, clamping scrolling and returning whether an end is reached
+    const UpdateDisp = (disp) => {
+
+        let hitEnd = false;
+
+        currentDisp += disp;
+
+        if ( currentDisp < 0 ) { currentDisp = 0; hitEnd = true; }
+        if ( currentDisp > maxDisplacement ) { currentDisp = maxDisplacement; hitEnd = true; }
+
+        items.style.transform = `translateX(-${currentDisp}px)`;
+
+        return hitEnd;
+    }
+
+    // Add behaviour to left and right nav buttons, allowing user to scroll through the weather data
+    leftButton.addEventListener("click", (event) => {
+        event.preventDefault();
+        if (UpdateDisp(-2*scrollSpace/15)) {
+            leftButton.style.display = `none`;
+        }
+        rightButton.style.display = `flex`;
+    });
+
+    rightButton.addEventListener("click", (event) => {
+        event.preventDefault();
+        if (UpdateDisp(2*scrollSpace/15)) {
+            rightButton.style.display = `none`;
+        }
+        leftButton.style.display = `flex`;
+    });
 
     return dailyDisplay;
 
