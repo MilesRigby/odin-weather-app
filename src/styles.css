@@ -144,7 +144,7 @@
 
 }
 
-.daily-weather-data-cell {
+.weather-data-cell {
 
     margin: calc(0.5 * var(--scale));
 
@@ -165,7 +165,7 @@
 
 }
 
-.daily-weather-data-name {
+.weather-data-name {
 
     margin-top: calc(0.5 * var(--scale));
     margin-left: calc(0.3 * var(--scale));
@@ -174,7 +174,7 @@
 
 }
 
-.daily-weather-data-value {
+.weather-data-value {
 
     margin-top: calc(1.2 * var(--scale));
     margin-left: calc(0.3 * var(--scale));

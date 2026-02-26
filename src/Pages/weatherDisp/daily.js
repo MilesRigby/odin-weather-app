@@ -29,9 +29,9 @@ const dayItemDef = {
 // Defines layout of a data-cell - nine are used to display distinct pieces of weather data
 const dataCellDef = {
 
-    "div": { attributes: {"className": "daily-weather-data-cell"}, children: [
-        { "p": { attributes: {"className": "daily-weather-data-name"}, children: []}},
-        { "p": { attributes: {"className": "daily-weather-data-value"}, children: []}}
+    "div": { attributes: {"className": "weather-data-cell"}, children: [
+        { "p": { attributes: {"className": "weather-data-name"}, children: []}},
+        { "p": { attributes: {"className": "weather-data-value"}, children: []}}
     ]}
 
 }
@@ -67,8 +67,8 @@ const ConstructHTML = () => {
             const dataCell = ConstructHTMLFromObject(dataCellDef);
             dataCells.appendChild(dataCell);
 
-            dataCell.querySelector(".daily-weather-data-name").innerText = name;
-            dataCell.querySelector(".daily-weather-data-value").innerHTML = placeholder;
+            dataCell.querySelector(".weather-data-name").innerText = name;
+            dataCell.querySelector(".weather-data-value").innerHTML = placeholder;
 
         }
     }
@@ -85,9 +85,9 @@ const ConstructDailyWeatherDataDisplay = () => {
     const items = dailyDisplay.querySelector(".scrollview-items");
 
     // Determine how far the scrollview can scroll
-    let scrollSpace = items.scrollWidth;
-    let maxDisplacement = scrollSpace - dailyDisplay.offsetWidth;
-    let currentDisp = 0;
+    let scrollSpace;
+    let maxDisplacement;
+    let currentDisp;
 
     // Initialises scrollview measurements on adding element to DOM, and 
     // maintains current ratio between scroll distance and scrollview width on window resize
