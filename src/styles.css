@@ -35,7 +35,9 @@
 
 }
 
-#daily-weather-disp {
+#daily-weather-disp, #hourly-weather-disp {
+
+    margin-top: 5vh;
 
     width: 90vw;
     overflow: hidden;
@@ -102,7 +104,7 @@
 
 }
 
-.daily-weather-item {
+.daily-weather-item, .hourly-weather-item {
 
     margin: 0.5rem var(--scale) 0.5rem var(--scale);
     flex: none;
@@ -122,7 +124,14 @@
 
 }
 
-.daily-weather-date {
+.hourly-weather-item {
+
+    width: calc(27*var(--scale));
+    height: calc(45*var(--scale));
+
+}
+
+.daily-weather-date, .hourly-weather-time {
 
     margin: var(--scale);
     padding: var(--scale);
@@ -136,10 +145,24 @@
 
 }
 
+.hourly-weather-time {
+
+    font-size: calc(2.5 * var(--scale))
+
+}
+
 .daily-weather-data {
 
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+
+}
+
+.hourly-weather-data {
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
 
 }
