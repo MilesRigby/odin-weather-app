@@ -1,5 +1,6 @@
 import LocationForm from "./locationForm.js"
 
+// Constructs the static content of the webpage - consisting of the weather location search form, and a div for the page's dynamic content
 const StaticContent = () => {
 
     const pageContent = document.getElementById("page-content");

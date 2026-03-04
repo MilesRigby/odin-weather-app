@@ -1,4 +1,5 @@
 import ConstructHTMLFromObject from "../ContentBuilder.js";
+import schema from "./schema.js";
 
 // Defines the top-level object for the display of hourly weather data
 const hourlyDisplayDef = {
@@ -36,36 +37,25 @@ const dataCellDef = {
 
 }
 
-// Object describing what pieces of data are to be displayed, and associated dummy data for initialisation
-const weatherDataSchema = {
-    "Temp": "-99&deg;",
-    "Rainfall": "9.9mm",
-    "Feels Like": "-99&deg;",
-    "Coverage": "9okt",
-    "Wind": "99mph",
-    "Visibility": "99.9km"
-}
-
 // Constructs the HTML for display area of hourly weather data
 const ConstructHTML = () => {
 
     const hourlyDisplay = ConstructHTMLFromObject(hourlyDisplayDef);
 
+    // Construct each hour's individual display
     const itemsSection = hourlyDisplay.querySelector(".scrollview-items");
-
     for (let i=0; i<24; i++) {
         const hourItem = ConstructHTMLFromObject(hourItemDef);
         itemsSection.appendChild(hourItem);
 
+        // Construct each piece of weather data's display cell, using the schema to label each cell
         const dataCells = hourItem.querySelector(".hourly-weather-data");
-
-        for ( const [name, placeholder] of Object.entries(weatherDataSchema) ) {
+        for ( const name of Object.keys(schema.hourly) ) {
 
             const dataCell = ConstructHTMLFromObject(dataCellDef);
             dataCells.appendChild(dataCell);
 
             dataCell.querySelector(".weather-data-name").innerText = name;
-            dataCell.querySelector(".weather-data-value").innerHTML = placeholder;
 
         }
     }

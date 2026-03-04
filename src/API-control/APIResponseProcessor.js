@@ -1,24 +1,24 @@
 // Describes which values we need from the API response, and what they are to be called locally
-// Ourname: 'APIResponseField'
+// 'local name': 'APIResponseField'
 const values = {
     day: {
-        rainfall: 'precip',
-        minTemp: 'tempmin',
-        maxTemp: 'tempmax',
-        maxFeelsLike: 'feelslikemax',
-        humidity: 'humdity',
-        cloudCoverage: 'cloudcover',
-        visibility: 'visibility',
-        uvIndex: 'uvindex',
-        windSpeed: 'windspeed',
+        'Rainfall': 'precip',
+        'Low': 'tempmin',
+        'High': 'tempmax',
+        'Feels Like': 'feelslikemax',
+        'Humidity': 'humidity',
+        'Coverage': 'cloudcover',
+        'Visibility': 'visibility',
+        'UV Index': 'uvindex',
+        'Wind': 'windspeed',
     },
     hour: {
-        rainfall: 'precip',
-        temp: 'temp',
-        feelsLike: 'feelslike',
-        visibility: 'visibility',
-        cloudCoverage: 'cloudcover',
-        windSpeed: 'windspeed',
+        'Rainfall': 'precip',
+        'Temp': 'temp',
+        'Feels Like': 'feelslike',
+        'Visibility': 'visibility',
+        'Coverage': 'cloudcover',
+        'Wind': 'windspeed',
     }
 }
 

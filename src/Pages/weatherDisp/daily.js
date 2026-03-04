@@ -1,4 +1,5 @@
 import ConstructHTMLFromObject from "../ContentBuilder.js";
+import schema from "./schema.js";
 
 // Defines the top-level object for the display of daily weather data
 const dailyDisplayDef = {
@@ -36,39 +37,26 @@ const dataCellDef = {
 
 }
 
-// Object describing what pieces of data are to be displayed, and associated dummy data for initialisation
-const weatherDataSchema = {
-    "High": "-99&deg;",
-    "Rainfall": "9.9mm",
-    "Coverage": "9okt",
-    "Feels Like": "-99&deg;",
-    "Visibility": "99.9km",
-    "UV Index": "99+",
-    "Low": "-99&deg;",
-    "Wind": "99mph",
-    "Humidity": "99%"
-}
-
 // Constructs the HTML for display area of daily weather data
 const ConstructHTML = () => {
 
+    // Construct main display
     const dailyDisplay = ConstructHTMLFromObject(dailyDisplayDef);
 
+    // Construct each day's individual display
     const itemsSection = dailyDisplay.querySelector(".scrollview-items");
-
     for (let i=0; i<15; i++) {
         const dayItem = ConstructHTMLFromObject(dayItemDef);
         itemsSection.appendChild(dayItem);
 
+        // Construct each piece of weather data's display cell, using the schema to label each cell
         const dataCells = dayItem.querySelector(".daily-weather-data");
-
-        for ( const [name, placeholder] of Object.entries(weatherDataSchema) ) {
+        for ( const name of Object.keys(schema.daily) ) {
 
             const dataCell = ConstructHTMLFromObject(dataCellDef);
             dataCells.appendChild(dataCell);
 
             dataCell.querySelector(".weather-data-name").innerText = name;
-            dataCell.querySelector(".weather-data-value").innerHTML = placeholder;
 
         }
     }
