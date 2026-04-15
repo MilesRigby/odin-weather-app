@@ -8,7 +8,7 @@ Features:
 
 index.js - the entry point for webpack. Performs initial load of the page's location search bar.
 
-template.html - a largely blank html file to witch page content is added through JavaScript.
+template.html - a largely blank html file to which page content is added through JavaScript.
 
 styles.css - contains all styles for the page, including scrolling behaviour for daily and hourly weather data displays.
 
