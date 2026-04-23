@@ -17,7 +17,7 @@ const schema = {
         "Feels Like": "&deg;C",
         "Coverage": "%",
         "Wind": "mph",
-        "Visibility": "%"
+        "Visibility": "km"
     }
 }
 
